@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Valentine 💖</title>
+
+<style>
+
+body{
+margin:0;
+font-family: 'Segoe UI';
+background:linear-gradient(135deg,#ff758c,#ff7eb3);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+color:white;
+overflow:hidden;
+}
+
+.screen{
+display:none;
+}
+
+.active{
+display:block;
+}
+
+button{
+padding:14px 28px;
+font-size:18px;
+border:none;
+border-radius:12px;
+margin:10px;
+cursor:pointer;
+transition:.3s;
+}
+
+.yes{background:#00e676;}
+.no{background:#ff1744; position:absolute;}
+
+.option{
+background:white;
+color:#ff4d6d;
+font-weight:bold;
+animation:float 2s infinite alternate;
+}
+
+@keyframes float{
+from{transform:translateY(0);}
+to{transform:translateY(-10px);}
+}
+
+.gifts{
+display:flex;
+gap:20px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.gift{
+font-size:70px;
+cursor:pointer;
+transition:.3s;
+}
+
+.gift:hover{
+transform:scale(1.2);
+}
+
+.big{
+font-size:26px;
+max-width:700px;
+margin:auto;
+}
+
+img{
+width:250px;
+border-radius:20px;
+margin-top:20px;
+animation:zoom 1s ease;
+}
+
+@keyframes zoom{
+from{transform:scale(0);}
+to{transform:scale(1);}
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- SCREEN 1 -->
+<div id="s1" class="screen active">
+<h1>💖 My Dear Suttumani Unni Kuttha 💖</h1>
+<h2>Will you be my Valentine?</h2>
+
+<button class="yes" onclick="show('s2')">YES 😍</button>
+<button class="no" onmouseover="moveNo(this)">NO 😜</button>
+</div>
+
+
+<!-- SCREEN 2 -->
+<div id="s2" class="screen">
+<h2>Maybe I should explain the perks of being my Suttapi 😉</h2>
+
+<button onclick="show('s3')">OKAY ❤️</button>
+</div>
+
+
+<!-- SCREEN 3 QUESTION -->
+<div id="s3" class="screen">
+
+<h2>Why should you choose me as your Valentine?</h2>
+
+<button class="option" onclick="correct()">  
+✨ Your Suttumani will treat you like the most beautiful girl forever  
+</button>
+
+<br><br>
+
+<button class="option" onclick="wrong()">
+Nothing 😝
+</button>
+
+</div>
+
+
+<!-- HUG SCREEN -->
+<div id="hug" class="screen">
+
+<h1>🤗 Come hereeeee!</h1>
+<h2>Unlimited Hugs & Love Activated 💕</h2>
+
+<img src="https://media.giphy.com/media/l2QDM9Jnim1YVILXa/giphy.gif">
+
+<br><br>
+
+<button onclick="show('gifts')">Open Your Gifts 🎁</button>
+
+</div>
+
+
+
+<!-- GIFTS -->
+<div id="gifts" class="screen">
+
+<h2>Three surprises waiting for you 😍</h2>
+
+<div class="gifts">
+
+<div class="gift" onclick="openGift(1)">🎵</div>
+<div class="gift" onclick="openGift(2)">💌</div>
+<div class="gift" onclick="openGift(3)">📸</div>
+
+</div>
+
+<div id="giftContent"></div>
+
+</div>
+
+
+<!-- FINAL -->
+<div id="final" class="screen">
+<h1>I LOVE YOU ❤️</h1>
+
+<p class="big">
+I love you so much my Sundhara Suttumani  Unnikutta 😘  
+Ummmhaaa 💋💋💋  chinju love you morethan everything
+
+This is my small Valentine's Day gift, Suttapi ❤️
+</p>
+
+</div>
+
+
+
+<script>
+
+function show(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+
+function moveNo(btn){
+btn.style.top=Math.random()*80+"%";
+btn.style.left=Math.random()*80+"%";
+}
+
+function correct(){
+show('hug');
+}
+
+function wrong(){
+alert("Wrong answer 😜 Try again!");
+}
+
+let opened=0;
+
+function openGift(num){
+
+let content=document.getElementById("giftContent");
+
+if(num===1){
+content.innerHTML=`
+<h3>Our Song 🎶</h3>
+
+<audio controls autoplay>
+<source src="https://open.spotify.com/track/4NP6GUM9ACL6dkceLxcwHE?si=AmYFa1zyT6GdAi6JviB-RA&nd=1&dlsi=36c2b9daf6e24a5b">
+</audio>
+`;
+}
+
+if(num===2){
+content.innerHTML=`
+<h3>Love Letter 💌</h3>
+
+<p class="big">
+My Unni,
+
+From the moment you came into my life, everything became brighter, and you filled my heart with happiness. I want us to live together for a lifetime — laughing, being a little crazy, and creating beautiful memories.
+
+Whatever problems come, we will face them together and solve them as one. I promise I will never leave you alone; I will always stand by your side in every situation. More than just words, I want to prove my love through the way I live with you.
+
+I am so excited for our future, and even this page is not enough to express how much you mean to me.
+
+I promise to annoy you,
+care for you,
+support you,
+and love you forever ❤️
+
+Forever yours,
+Your little Shuttumani ❤️
+
+
+
+
+
+
+</p>
+`;
+}
+
+if(num===3){
+content.innerHTML=`
+<h3>Our Memory 📸</h3>
+
+<img src="https://mail.google.com/mail/u/0?ui=2&ik=f730e222b6&attid=0.1&permmsgid=msg-a:r121697928980007505&th=19c56645ec668234&view=fimg&fur=ip&permmsgid=msg-a:r121697928980007505&sz=s0-l75-ft&attbid=ANGjdJ8HWkHFX6C4RXSqcOfgfv2Xbob7MPIAtSsrarYW5nfxWxoZ7LkKx5dRDflxhza731FUu0LzrY4BcPvNq2j5BQPFrW2V3l9bG5mcSR-RaEnapyx8vWCpydO1-t8&disp=emb&realattid=0AFEE059-FBCD-4692-891A-8A57D7D5C963&zw">
+`;
+}
+
+opened++;
+
+if(opened>=3){
+setTimeout(()=>show('final'),2000);
+}
+
+}
+
+</script>
+
+</body>
+</html>
