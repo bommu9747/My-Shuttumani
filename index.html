@@ -5,7 +5,6 @@
 
 <title>My Valentine 💖</title>
 
-<!-- Romantic Google Font -->
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins&display=swap" rel="stylesheet">
 
 <style>
@@ -28,8 +27,8 @@ body::before{
 content:"💗 💕 💖 💘 💝";
 position:absolute;
 font-size:40px;
-animation:floatHearts 10s linear infinite;
-opacity:.2;
+animation:floatHearts 12s linear infinite;
+opacity:.15;
 }
 
 @keyframes floatHearts{
@@ -40,6 +39,7 @@ to{transform:translateY(-10vh);}
 .screen{
 display:none;
 padding:20px;
+max-width:800px;
 }
 
 .active{
@@ -49,6 +49,7 @@ display:block;
 h1{
 font-family:'Great Vibes',cursive;
 font-size:52px;
+margin-bottom:10px;
 }
 
 h2{
@@ -114,7 +115,7 @@ transform:scale(1.3) rotate(10deg);
 }
 
 .big{
-font-size:22px;
+font-size:20px;
 max-width:700px;
 margin:auto;
 line-height:1.6;
@@ -133,12 +134,27 @@ from{transform:scale(0);}
 to{transform:scale(1);}
 }
 
+/* FINAL IMAGES */
+.final-images{
+margin-top:30px;
+display:flex;
+flex-direction:column;
+align-items:center;
+gap:25px;
+}
+
+.final-images img{
+width:90%;
+max-width:500px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+}
+
 /* MOBILE */
 
 @media(max-width:600px){
-
 h1{font-size:38px;}
-.big{font-size:18px;}
+.big{font-size:17px;}
 img{width:85%;}
 }
 
@@ -159,15 +175,13 @@ img{width:85%;}
 
 <!-- SCREEN 2 -->
 <div id="s2" class="screen">
-<h2>Let me show you how lucky you are to be my Suttapi.” 😉</h2>
-
+<h2>Let me show you how lucky you are to be my Suttapi 😉</h2>
 <button onclick="show('s3')">OKAY ❤️</button>
 </div>
 
 
 <!-- SCREEN 3 -->
 <div id="s3" class="screen">
-
 <h2>Why should you choose me as your Valentine?</h2>
 
 <button class="option" onclick="correct()">  
@@ -176,16 +190,12 @@ img{width:85%;}
 
 <br><br>
 
-<button class="option" onclick="wrong()">
-Nothing 😝
-</button>
-
+<button class="option" onclick="wrong()">Nothing 😝</button>
 </div>
 
 
 <!-- HUG SCREEN -->
 <div id="hug" class="screen">
-
 <h1>Unlimited Hugs 🤗</h1>
 <h2>Love Activated 💕</h2>
 
@@ -194,26 +204,20 @@ Nothing 😝
 <br><br>
 
 <button onclick="show('gifts')">Open Your Gifts 🎁</button>
-
 </div>
-
 
 
 <!-- GIFTS -->
 <div id="gifts" class="screen">
-
 <h2>Three surprises waiting for you 😍</h2>
 
 <div class="gifts">
-
 <div class="gift" onclick="openGift(1)">🎵</div>
 <div class="gift" onclick="openGift(2)">💌</div>
 <div class="gift" onclick="openGift(3)">📸</div>
-
 </div>
 
 <div id="giftContent"></div>
-
 </div>
 
 
@@ -225,13 +229,16 @@ Nothing 😝
 I love you so much, Unnikutta 😘  
 Ummmhaaa 💋💋💋  
 
-Chinju loves you more than everything in this world.
-
-This is my small Valentine's Day gift, Shuttappi ❤️
+Chinju loves you more than everything in this world.  
+This is my small Valentine's Day gift, Suttapi ❤️
 </p>
 
+<div class="final-images">
+<img src="https://i.postimg.cc/gcCbz2nL/IMG_5412.jpg">
+<img src="https://i.postimg.cc/QxcGHZT4/IMG_5413.jpg">
 </div>
 
+</div>
 
 
 <script>
@@ -264,28 +271,26 @@ if(num===1){
 content.innerHTML=`
 <h3>Our Song 🎶</h3>
 
-<audio controls autoplay>
-<source src="https://gaana.com/song/neeyum-njanum-19">
-</audio>
-<p>(Upload an MP3 to your GitHub and paste the link)</p>
+<iframe style="border-radius:12px"
+src="https://open.spotify.com/embed/track/4NP6GUM9ACL6dkceLxcwHE"
+width="100%" height="152" frameBorder="0"
+allowfullscreen=""
+allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture">
+</iframe>
+
+<p style="margin-top:15px;">Neeyum Njanum 💖</p>
 `;
 }
 
 if(num===2){
 content.innerHTML=`
 <h3>Love Letter 💌</h3>
-
 <p class="big">
-My Unni,
-
+My Unni,<br><br>
 From the moment you came into my life, everything became brighter.
-You filled my heart with a happiness I never knew existed.
-
 No matter what problems come, we will face them together.
-I promise to stand beside you, support you, annoy you,
-care for you, and love you forever ❤️
-
-Forever yours,  
+I promise to love you, care for you, support you, and stay with you forever ❤️<br><br>
+Forever yours,<br>
 Your Chinju 💖
 </p>
 `;
@@ -294,16 +299,14 @@ Your Chinju 💖
 if(num===3){
 content.innerHTML=`
 <h3>Our Memory 📸</h3>
-
-<img src="https://i.postimg.cc/gcCbz2nL/IMG_5412.jpg">
-<img src="https://i.postimg.cc/QxcGHZT4/IMG_5413.jpg">
+<p class="big">Our best memories are waiting in the final surprise ❤️</p>
 `;
 }
 
 opened++;
 
 if(opened>=3){
-setTimeout(()=>show('final'),2000);
+setTimeout(()=>show('final'),4000);
 }
 
 }
